@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  arucotag:
+    build: .
+    image: aruco:ros-noetic
+    container_name: pomelo
+    volumes:
+     # Allows GUI apps in the container to use the host's X server
+      - "/tmp/.X11-unix:/tmp/.X11-unix" 
+    #  Allow container access to USB devices
+      - "/dev/bus/usb:/dev/bus/usb" 
+    environment:
+      - DISPLAY=unix$DISPLAY
+      - TERM=xterm
+    
+    command: /bin/bash   
+    tty: true  
+    network_mode: "host"
+    privileged: true 
