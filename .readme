@@ -1,10 +1,11 @@
 # Intel® RealSense™ and ArUco Marker Detection Guide
-This repository contains a comprehensive guide and implementation for integrating Intel RealSense cameras with ArUco marker detection under ROS noetic.
+This repository contains a comprehensive guide and implementation for integrating Intel RealSense cameras with ArUco marker detection under ROS Noetic.
 
 ## Hardware Check
 Make sure Intel® RealSense™ is detected by the host machine.
 
-Type `lsusb` in the terminal , and it should show something like :
+Type `lsusb` in the terminal, and it should show something like:
+
 ```
 Bus 001 Device 004: ID 8086:0b3a Intel Corp. Intel(R) RealSense(TM) Depth Camera 435i
 ```
