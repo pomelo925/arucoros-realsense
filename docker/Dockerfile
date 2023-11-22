@@ -1,10 +1,26 @@
 ################################################################################################
 #   - Date: 2023/11/17
-#   - Base image: ros:noetic (AMD64)
+#   - Base image: ros:noetic
 #       - https://hub.docker.com/layers/library/ros/noetic/images/sha256-7400e73ed09bf9643c8712de7b3a5cb0bac977c1e39c31f8d638f044a75d1e81?context=explore
 ################################################################################################
 
 FROM ros:noetic
+
+LABEL org.opencontainers.image.authors="yoseph.huang@gmail.com"
+
+ARG USERNAME=user
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+### create non-root user
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME -s /bin/bash \
+    ## passwordless
+    && apt-get update \
+    && apt-get install -y sudo \
+    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME \
+    && rm -rf /var/lib/apt/lists/*
 
 ### installation
 RUN apt-get update && apt-get install -y \
@@ -16,8 +32,8 @@ RUN apt-get update && apt-get install -y \
     libssl-dev libusb-1.0-0-dev libudev-dev pkg-config udev \ 
     # realsense SDK (docker)
     libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev \
-    libglu1-mesa-dev libglew-dev mesa-common-dev libxi-dev\ 
-    ros-noetic-diagnostic-updater \
+    libglu1-mesa-dev libglew-dev mesa-common-dev libxi-dev \ 
+    ros-noetic-diagnostic-updater ros-noetic-rviz \
     && rm -rf /var/lib/apt/lists/*
 
 
@@ -48,4 +64,9 @@ RUN apt-get update && \
     echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc \
     && rm -rf /var/lib/apt/lists/*
 
+
+# [optional] Omit if you want run as root.
+USER $USERNAME
+
+ENV SHELL /bin/bash
 CMD ["/bin/bash"]
