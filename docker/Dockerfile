@@ -39,9 +39,10 @@ RUN apt-get update && apt-get install -y \
 
 ### install realsense SDK
 RUN git clone https://github.com/IntelRealSense/librealsense.git
-WORKDIR /librealsense/build
+WORKDIR /librealsense/build 
 RUN cmake ../ -DBUILD_EXAMPLES=true -DCMAKE_BUILD_TYPE=Release && \
     make -j4 && make install
+
 
 ### ros pkg
 WORKDIR /arucoros-ws/src
@@ -69,4 +70,5 @@ RUN apt-get update && \
 USER $USERNAME
 
 ENV SHELL /bin/bash
+
 CMD ["/bin/bash"]

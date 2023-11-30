@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   arucotag:
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile
     image: aruco:ros-noetic
     container_name: pomelo
     volumes:
