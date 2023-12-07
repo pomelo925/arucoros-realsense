@@ -24,7 +24,7 @@ Host machine MUST be linux/arm/v7 architecture.
     ```
     git clone https://github.com/pomelo925/arucoros-realsense.git
     ```
-2. Navigate to /aruco page and build up the docker image.
+2. Navigate to `/realsense-arucoros-noetic-arm64 page` (for example) and run the docker image.
 
     ```
     docker compose up

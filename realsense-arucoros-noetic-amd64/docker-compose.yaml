@@ -23,7 +23,7 @@ services:
     devices:
       - /dev/bus/usb  # Grant access to USB devices
 
-    ## [IMPORTANT] Ensure container hostname matches that of host machine's 
+    ## [IMPORTANT] Change container hostname to that of the host machine's 
     hostname: cleaner  
 
 # roslaunch realsense2_camera rs_camera.launch
