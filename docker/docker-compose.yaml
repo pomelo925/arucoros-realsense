@@ -3,21 +3,27 @@ version: '3.8'
 services:
   arucotag:
     build: 
-      context: .
-      dockerfile: Dockerfile
-    image: aruco:ros-noetic
-    container_name: pomelo
-    volumes:
-     # Allows GUI apps in the container to use the host's X server
-      - "/tmp/.X11-unix:/tmp/.X11-unix" 
-    environment:
-      - DISPLAY=${DISPLAY}
-    devices:
-      # For USB access 
-      - "/dev/bus/usb:/dev/bus/usb"  
-      # For direct rendering     
-      - /dev/dri:/dev/dri  
+      context: .  
+      dockerfile: Dockerfile 
+    image: pomelo925/realsense-aruco:ros-noetic
+    container_name: realsense
+    command: /bin/bash 
+    tty: true  
     network_mode: host
     privileged: true 
-    command: /bin/bash   
-    tty: true  
+
+    ## accessibility to Intel® RealSense™ 
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $HOME/.Xauthority:/home/user/.Xauthority 
+    environment:
+      - DISPLAY=${DISPLAY}  # Set display environment variable
+      - XAUTHORITY=/home/user/.Xauthority   # Set Xauthority path
+    devices:
+      - /dev/bus/usb  # Grant access to USB devices
+
+    ## [IMPORTANT] Ensure container hostname matches that of host machine's 
+    hostname: cleaner  
+
+# roslaunch realsense2_camera rs_camera.launch

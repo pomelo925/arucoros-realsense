@@ -37,4 +37,9 @@ Host machine MUST be linux/arm/v7 architecture.
 5. Choose the container named `pomelo` from the list to enter container.
 
 
-## Run App (roslaunch)
+## Intel® RealSense™ Connection Test
+if error like this:
+```
+ 07/12 05:04:42,078 ERROR [281472812437904] (librealsense-exception.h:52) xioctl(VIDIOC_G_CTRL) failed Last Error: Connection timed out
+ ```
+ please make sure Intel® RealSense™ is inserted on USB 3.0 port (with the blue mark).
