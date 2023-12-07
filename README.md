@@ -43,14 +43,3 @@ if error like this:
  07/12 05:04:42,078 ERROR [281472812437904] (librealsense-exception.h:52) xioctl(VIDIOC_G_CTRL) failed Last Error: Connection timed out
  ```
  please make sure Intel® RealSense™ is inserted on USB 3.0 port (with the blue mark).
-
-
-
- ## Existed Problem
- Any GUI-app would occur this error : 
-```powershell=
-MoTTY X11 proxy: Authorisation not recognised
-In case you are trying to start a graphical application with "sudo", read this article in order to avoid this issue:
-https://blog.mobatek.net/post/how-to-keep-X11-display-after-su-or-sudo/
-Error: Can't open display: localhost:10.0
-```
