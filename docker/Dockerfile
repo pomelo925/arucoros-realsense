@@ -1,4 +1,5 @@
-FROM ros:noetic
+## ARM64 architecture ##
+FROM ros:noetic 
 
 LABEL org.opencontainers.image.authors="yoseph.huang@gmail.com"
 
