@@ -1,6 +1,7 @@
-# Intel® RealSense™ and ArUco Marker Detection Guide
+# Multiple Intel® RealSense™ Environments 
 
-This repository integrates Intel RealSense cameras with ArUco marker detection under ROS Noetic.
+This repository is designed as a comprehensive toolkit for users looking to explore and implement RealSense™ in various contexts and applications.
+We integrate the powerful capabilities of Intel® RealSense™ with a diverse array of functionalities. 
 
 
 ## Hardware Check
