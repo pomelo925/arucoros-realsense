@@ -1,20 +1,20 @@
-# Multiple Intel® RealSense™ Environments 
+# Intel® RealSense™ Multifaceted Toolkit
 
-This repository is designed as a comprehensive toolkit for users looking to explore and implement RealSense™ in various contexts and applications.
-We integrate the powerful capabilities of Intel® RealSense™ with a diverse array of functionalities. 
-
+This repository serves as a gateway to harness the full potential of RealSense™ across a wide range of contexts and applications.
 
 ## A. Build Image and Run Container
-Host machine MUST be linux/arm/v7 architecture.
 
+The architecture of its each environment is  on the folder name.
 
 1. Git clone this repo.
-    ```
+
+    ```bash
     git clone https://github.com/pomelo925/arucoros-realsense.git
     ```
+
 2. Navigate to `/realsense-arucoros-noetic-arm64 page` (for example) and run the docker image.
 
-    ```
+    ```bash
     docker compose up
     ```
 
@@ -24,24 +24,24 @@ Host machine MUST be linux/arm/v7 architecture.
 
 5. Choose the container named `pomelo` from the list to enter container.
 
-
 ## B. Hardware Check
 
 Make sure Intel® RealSense™ is detected by the host machine.
 
 Type `lsusb` in the terminal, and it should show something like:
 
-```
+```bash
 Bus 001 Device 004: ID 8086:0b3a Intel Corp. Intel(R) RealSense(TM) Depth Camera 435i
 ```
 
->Note that RealSense™ would be shown in  `dmesg | grep tty`  beacuse it do NOT communicate as traditional serial devices.  Instead, it interface with USB Video Class (UVC) devices or via specialized drivers provided by the Intel RealSense SDK.
-
-
+>`dmesg | grep tty` will NOT list oout RealSense™ cuz it interfaces with specialized drivers UVC (USB Video Class) provided by the Intel RealSense SDK.
 
 ## C. Intel® RealSense™ Connection Test
+
 if error like this:
-```
- 07/12 05:04:42,078 ERROR [281472812437904] (librealsense-exception.h:52) xioctl(VIDIOC_G_CTRL) failed Last Error: Connection timed out
+
+```bash
+07/12 05:04:42,078 ERROR [281472812437904] (librealsense-exception.h:52) xioctl(VIDIOC_G_CTRL) failed Last Error: Connection timed out
  ```
- please make sure Intel® RealSense™ is inserted on USB 3.0 port (with the blue mark).
+
+please make sure Intel® RealSense™ is inserted on USB 3.0 port (with the blue mark).
