@@ -1,0 +1,2 @@
+diff-rs-pcl2:univ-rs-pcl2
+-DCATKIN_DEVEL_PREFIX=/home/extraction-ws/devel -DCMAKE_INSTALL_PREFIX=/home/extraction-ws/install -G Unix Makefiles

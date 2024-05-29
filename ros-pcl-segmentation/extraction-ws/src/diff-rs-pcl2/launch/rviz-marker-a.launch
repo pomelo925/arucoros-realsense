@@ -1,0 +1,3 @@
+<launch>
+  <node name="D_rviz_marker_a" pkg="rviz" type="rviz" args="-d $(find diff-rs-pcl2)/config/marker-cam-a.rviz" required="true"/>
+</launch>

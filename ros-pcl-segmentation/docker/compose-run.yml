@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  arucotag:
+    build: 
+      context: .  
+      dockerfile: Dockerfile
+    image: pomelo925/realsense-noetic-root:pcl
+    container_name: diff-run
+    tty: true  
+    network_mode: host
+    privileged: true
+
+    ## accessibility to Intel® RealSense™ 
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $HOME/.Xauthority:/root/.Xauthority
+
+      - ../extraction-ws:/home/extraction-ws
+      - ../startup:/home/startup
+
+    environment:
+      - DISPLAY=${DISPLAY}  # Turn on MOBAXTERM first
+      - XAUTHORITY=/root/.Xauthority   # Set Xauthority path
+    
+    devices:
+      - /dev/bus/usb  # Grant access to USB devices
+
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+    
+    command: >
+      /bin/bash

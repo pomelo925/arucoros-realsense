@@ -1,0 +1,29 @@
+version: '3'
+services:
+  ros1-main-program:
+    build: 
+      context: .  
+      dockerfile: Dockerfile
+    image: pomelo925/realsense-noetic-root:pcl
+    container_name: build
+    tty: true
+    privileged: true
+    network_mode: host
+
+    environment:
+      - DISPLAY=${DISPLAY}  # Turn on MOBAXTERM first
+      - XAUTHORITY=/root/.Xauthority   # Set Xauthority path
+
+    volumes:
+      - ../extraction-ws:/home/extraction-ws
+      - ../startup:/home/startup
+
+    command: >
+      /bin/bash -c "
+      cd /home/extraction-ws 
+      && catkin_make
+      && chmod +x /home/extraction-ws/devel/lib/diff-rs-pcl2/*
+      && chmod +x /home/extraction-ws/devel/lib/univ-rs-pcl2/*
+      && cd /home/realsense-ws 
+      && catkin_make
+      "

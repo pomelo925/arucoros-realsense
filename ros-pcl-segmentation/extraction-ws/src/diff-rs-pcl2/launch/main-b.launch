@@ -1,0 +1,39 @@
+<launch>
+  <arg name="camera" default="diff_cam_B"/>
+  
+  <param name="vision/cam_prefix" value="B" />
+
+  <node pkg="diff-rs-pcl2" type="D-main-b" name="diff_B" output="screen">
+    
+  <!-- Step 1 - CUBE SEGMENTATION  -->
+    <remap from="diff_B/input" to="/$(arg camera)/depth/color/points" />
+    <remap from="cube_B/output" to="/$(arg camera)/differential/ladybug/cube" />
+    
+    <!-- Filter Params for Y axis -->
+    <param name="filter_low_y" value="-0.05" />
+    <param name="filter_high_y" value="0.06" /> 
+    <!-- Filter Params for Z axis -->
+    <param name="filter_low_z" value="0" />
+    <param name="filter_high_z" value="1.5" />
+    <!-- Filter Params for X axis -->
+    <param name="filter_low_x" value="-0.5" />
+    <param name="filter_high_x" value="0.5" />
+
+
+  <!-- Step 2 - DBSCAN Cluster -->
+    <remap from="dbscan/input" to="/$(arg camera)/depth/color/points" />
+    <!-- DBSCAN Params -->
+    <param name="cluster_tolerance" value="0.01" />
+    <param name="min_cluster_size" value="200" />
+    <param name="max_cluster_size" value="20000" />
+
+  <!-- Step 3 - Marker Array Params -->
+    <param name="line_thickness" value="0.005" />
+
+  <!-- Step 4 - Safety Params -->
+    <!-- unit: m -->
+    <param name="min_safety_dist" value="0.3" />
+    <!-- unit: sec -->
+    <param name="obstacle_existence_checking_period" value="1" /> 
+  </node>
+</launch>
