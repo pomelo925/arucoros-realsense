@@ -1,6 +1,8 @@
 # Intel® RealSense™ Multifaceted Toolkit
 
-This repository harness the full potential of RealSense™ across a wide range of contexts and applications on ROS.
+This repository harness the RGBD Camera RealSense™ D435/D435i across a wide range of contexts and applications on ROS.
+
+### Demonstration
 
 |      Static View     |      Dynamic View      |
 |:--------------------:|:----------------------:|
@@ -8,10 +10,11 @@ This repository harness the full potential of RealSense™ across a wide range o
 
 
 
+
 ## A. Get Started
 
 ### Recommended Environment
-* Linux 18.04 or higher. 
+* Ubuntu 18.04 or higher. 
 * Docker must be installed.
 * cam: Intel® RealSense™ D435 or D435i.
 
@@ -50,7 +53,7 @@ I will organize the code into a more general and user-friendly version if time p
 
 Please let me know if you are interested and need any assistance.
 
-### Chinese
+### 繁中
 
 這段程式碼是在 Eurobot 2024 比賽結束後，從私人 repo 移植過來的。
 請見諒內部為比賽需求而有諸多特殊的命名，同時還有較難以理解的程式啟動方式和包裝。
