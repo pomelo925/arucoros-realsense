@@ -2,28 +2,9 @@
 
 This repository harness the full potential of RealSense™ across a wide range of contexts and applications on ROS.
 
-<style>
-  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  th, td {
-    border: 1px solid black;
-    text-align: center;
-    padding: 8px;
-  }
-</style>
-
-<table>
-  <tr>
-    <th>Static View</th>
-    <th>Dynamic View</th>
-  </tr>
-  <tr>
-    <td>[![static](image.png)](https://youtu.be/AulwKrzP8cg?si=nGgHpC9bgyvMGtC9)</td>
-    <td>[![alt text](image-1.png)](https://www.youtube.com/watch?v=scDBoZmQeG4)</td>
-  </tr>
-</table>
+|      Static View     |      Dynamic View      |
+|:--------------------:|:----------------------:|
+| [![static](docs/static-view.png)](https://youtu.be/AulwKrzP8cg?si=nGgHpC9bgyvMGtC9) | [![alt text](docs/dynamic-view.png)](https://www.youtube.com/watch?v=scDBoZmQeG4) |
 
 
 
